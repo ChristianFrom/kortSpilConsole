@@ -30,7 +30,6 @@ namespace kortSpilConsole
                 cards.Add(new Card("yellow", ""+i));
                 cards.Add(new Card("yellow", ""+i));
 
-                
             }
 
             for (int i = 0; i < 3; i++)
@@ -38,7 +37,7 @@ namespace kortSpilConsole
                 cards.Add(new Card("red", "+2"));
                 cards.Add(new Card("black", "skip"));
             }
-            
+
             Shuffle();
 
             //move first card to revealed cards
@@ -52,7 +51,7 @@ namespace kortSpilConsole
             return c; //giver kortet til den der kalder metoden
         }
 
-        public Card DebugDraw(string Color, string Value)
+        public Card DebugDraw(string Color, String Value)
         {
             for (int i = 0; i < cards.Count; i++)
             {

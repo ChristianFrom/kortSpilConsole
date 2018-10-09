@@ -33,15 +33,13 @@ namespace kortSpilConsole
             }
         }
 
-
-        public void DebugDrawCard(String Color, String Value)
+        public void DebugDrawCard(String Color, string Value)
         {
             Hand.Add(game.deck.DebugDraw(Color, Value));
         }
-
         public override string ToString()
         {
-           StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append(name);
             sb.Append(": ");
             for (int i = 0; i < Hand.Count; i++)
