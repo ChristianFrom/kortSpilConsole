@@ -21,9 +21,15 @@ namespace kortSpilConsole
             players.Add(new Player("Alfa", this));
             players.Add(new Player("Beta", this));
             currentPlayer = players.First();
-            //del 7 kort ud til spillerne
-            players[0].DrawCard(7);
-            players[1].DrawCard(7);
+
+            //del kort ud til spiller 1;
+            players[0].DrawCard(6);
+            players[0].DebugDrawCard("black", "skip");
+            //del 7 kort ud til resten af spillerne
+            for (int i = 1; i < players.Count; i++)
+            {
+                players[i].DrawCard(7);
+            }
 
             while (gameover != true)
             {
@@ -37,15 +43,24 @@ namespace kortSpilConsole
                 Console.WriteLine("Vælg et kort fuckhoved!");
                 int i = Convert.ToInt32(Console.ReadLine());
 
-                //TODO prøv at 'spille' det valgte kort til bunken
+                //prøv at 'spille' det valgte kort til bunken
                 if (deck.playCard(currentPlayer.Hand[i - 1]))
                 {
                     currentPlayer.Hand.Remove(currentPlayer.Hand[i - 1]);
 
                 }
+                else { players[players.IndexOf(currentPlayer)].DrawCard();}
+
+
+
 
                 nextPlayer();
             }
+        }
+
+        public void skip()
+        {
+            nextPlayer();
         }
 
         private void nextPlayer()
